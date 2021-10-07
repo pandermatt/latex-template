@@ -1,0 +1,158 @@
+ \documentclass[a4paper, 11pt,abstract=on,usegeometry]{scrreprt}
+\usepackage[bottom=4cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman, english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lastpage}
+\usepackage{lmodern}
+\usepackage{subcaption}
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage{etoc}
+\setcounter{tocdepth}{1}
+
+%[disable,]
+\usepackage[disable,ngerman,linecolor=gray,bordercolor=gray,backgroundcolor=yellow,textsize=tiny]{todonotes}
+
+%Links without color
+\usepackage[hidelinks, pdftex]{hyperref}
+\usepackage[final]{pdfpages}
+
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\lstset{
+basicstyle=\ttfamily,
+columns=fullflexible,
+frame=single,
+breaklines=true,
+postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\usepackage[toc, numberedsection, acronym]{glossaries}
+\usepackage{graphicx}
+\makeglossaries
+\setglossarysection{section}
+\renewcommand{\glossarysection}[2][]{}
+\loadglsentries{chapters/resources/glossary}
+
+\renewcommand{\baselinestretch}{1.4}
+
+% Variable definitions
+\providecommand{\documenttitle}{TODO}
+\providecommand{\documentauthors}{TODO}
+\providecommand{\documentdate}{20.12.2019}
+
+\usepackage[headsepline, footsepline, plainfootsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\automark{chapter}
+\ihead{\leftmark{}}
+\ofoot[\thepage]{\thepage}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+{-2.5ex\@plus -1ex \@minus -.25ex}%
+{1.25ex \@plus .25ex}%
+{\normalfont\normalsize\itshape\bfseries}}
+\makeatother
+
+\newcommand{\etal}{\textit{et al.}}
+
+
+\makeatletter
+\renewcommand\listoftables{%
+\section{\listtablename}%
+\@starttoc{lot}%
+}
+\renewcommand\listoffigures{%
+\section{\listfigurename}%
+\@starttoc{lof}%
+}
+
+% Format Bibliography as section
+\renewenvironment{thebibliography}[1]
+{\section{\bibname}
+\list{\@biblabel{\@arabic\c@enumiv}}
+{\settowidth\labelwidth{\@biblabel{#1}}
+\leftmargin\labelwidth
+\advance\leftmargin\labelsep
+\@openbib@code
+\usecounter{enumiv}
+\let\p@enumiv\@empty
+\renewcommand\theenumiv{\@arabic\c@enumiv}}
+\sloppy
+\clubpenalty4000
+\@clubpenalty \clubpenalty
+\widowpenalty4000
+\sfcode`\.\@m}
+{\def\@noitemerr
+{\@latex@warning{Empty `thebibliography' environment}}%
+\endlist}
+\makeatother
+
+
+
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+\null
+\thispagestyle{empty}%
+\newpage}
+
+
+\graphicspath{ {images/} }
+
+\title{Latex template for scientific work}
+\author{TODO}
+
+\setlength{\intextsep}{20pt}
+
+\begin{document}
+    \pagenumbering{Roman}
+    \selectlanguage{ngerman}
+
+    \maketitle
+
+    \begin{abstract}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo ullamcorper a lacus vestibulum sed arcu non odio. Velit scelerisque in dictum non. Eu ultrices vitae auctor eu augue ut lectus. Ultrices tincidunt arcu non sodales neque sodales ut. Integer quis auctor elit sed vulputate mi sit amet. Arcu cursus euismod quis viverra. Gravida arcu ac tortor dignissim convallis aenean et. Ipsum faucibus vitae aliquet nec ullamcorper. Ultrices gravida dictum fusce ut. Mollis aliquam ut porttitor leo. Aenean pharetra magna ac placerat vestibulum lectus mauris. Egestas tellus rutrum tellus pellentesque eu. Ut etiam sit amet nisl. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Magna etiam tempor orci eu lobortis elementum nibh tellus.
+
+    \end{abstract}
+    \glsresetall
+    \clearpage
+    
+    \tableofcontents
+    
+    %\listoftodos
+    \glsresetall
+
+    %\afterpage{\blankpage} new blank page
+
+    \include{chapters/1-einleitung}
+    % put some more chapters here
+    %.
+    %.
+    %.
+    %.
+    %.
+
+    \renewcommand{\thechapter}{A}
+    \chapter{Literatur}
+    \begin{flushleft}
+        \bibliography{chapters/resources/sources}
+        \bibliographystyle{chapters/resources/IEEEcustom}
+    \end{flushleft}
+    \clearpage
+    \section{Glossar} %Hack
+    \printglossary % needs aux glo ist
+    \clearpage
+    \listoffigures
+    \clearpage
+    \listoftables
+    \clearpage
+    \section{Abkürzungsverzeichnis} %Hack
+    \printglossary[type=\acronymtype,title={Abkürzungsverzeichnis}]
+
+    \renewcommand{\thechapter}{B}
+
+\end{document}
