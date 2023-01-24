@@ -2,7 +2,7 @@
 
 [![Build LaTeX document](https://github.com/pandermatt/latex-template/actions/workflows/main.yml/badge.svg)](https://github.com/pandermatt/latex-template/actions/workflows/main.yml)
 
-This is my LaTeX template that I have used over several years of study to write some beautiful academic papers
+This is my LaTeX template that I have used over several years of study to write some beautiful academic papers.
 
 ## How to use
 
@@ -16,6 +16,8 @@ This is a citation for a website~\cite{website:this_repo}.
 
 \todo[inline]{Use me to add Todos to the document. You can disable me in the main file}
 ```
+
+Check out [Version 1.0](https://github.com/pandermatt/latex-template/releases/tag/1.0) for a german version of the template.
 
 ## Problems
 

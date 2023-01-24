@@ -1,8 +1,8 @@
- \documentclass[a4paper, 11pt,abstract=on,usegeometry]{scrreprt}
+\documentclass[a4paper, 11pt,abstract=on,usegeometry]{scrreprt}
 \usepackage[bottom=4cm]{geometry}
 
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman, english]{babel}
+\usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{lastpage}
 \usepackage{lmodern}
@@ -13,7 +13,7 @@
 \setcounter{tocdepth}{1}
 
 %[disable,]
-\usepackage[ngerman,linecolor=gray,bordercolor=gray,backgroundcolor=yellow,textsize=tiny]{todonotes}
+\usepackage[linecolor=gray,bordercolor=gray,backgroundcolor=yellow,textsize=tiny]{todonotes}
 
 %Links without color
 \usepackage[hidelinks, pdftex]{hyperref}
@@ -35,7 +35,7 @@ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 \makeglossaries
 \setglossarysection{section}
 \renewcommand{\glossarysection}[2][]{}
-\loadglsentries{chapters/resources/glossary}
+\loadglsentries{resources/glossary}
 
 \renewcommand{\baselinestretch}{1.4}
 
@@ -110,7 +110,6 @@ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 
 \begin{document}
     \pagenumbering{Roman}
-    \selectlanguage{ngerman}
 
     \maketitle
 
@@ -122,12 +121,15 @@ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
     \clearpage
     
     \tableofcontents
+
+    \clearpage
     
     %\listoftodos
     \glsresetall
 
     %\afterpage{\blankpage} new blank page
 
+    \pagenumbering{arabic} %% Damit Einleitung bei Seite 1 anfängt
     \include{chapters/1-einleitung}
     % put some more chapters here
     %.
@@ -137,21 +139,21 @@ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
     %.
 
     \renewcommand{\thechapter}{A}
-    \chapter{Literatur}
+    \chapter{Literature}
     \begin{flushleft}
-        \bibliography{chapters/resources/sources}
-        \bibliographystyle{chapters/resources/IEEEcustom}
+        \bibliography{resources/sources}
+        \bibliographystyle{resources/IEEEcustom}
     \end{flushleft}
     \clearpage
-    \section{Glossar} %Hack
+    \section{Glossary} %Hack
     \printglossary % needs aux glo ist
     \clearpage
     \listoffigures
     \clearpage
     \listoftables
     \clearpage
-    \section{Abkürzungsverzeichnis} %Hack
-    \printglossary[type=\acronymtype,title={Abkürzungsverzeichnis}]
+    \section{Acronyms} %Hack
+    \printglossary[type=\acronymtype]
 
     \renewcommand{\thechapter}{B}
 
