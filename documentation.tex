@@ -109,35 +109,39 @@ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 \setlength{\intextsep}{20pt}
 
 \begin{document}
+    %%%%%% HEADER %%%%%%
     \pagenumbering{Roman}
-
-    \maketitle
-
+    \include{resources/title.tex}
     \begin{abstract}
         \input{chapters/0-abstract.tex}
     \end{abstract}
     \glsresetall
     \clearpage
-    
-    \tableofcontents
 
+    \input{chapters/0-acknowledgements.tex}
     \clearpage
     
-    %\listoftodos
+    \tableofcontents
+    \clearpage
+    
+    %\listoftodos % If you want to see all todos
     \glsresetall
 
     %\afterpage{\blankpage} new blank page
 
-    \pagenumbering{arabic} %% Damit Einleitung bei Seite 1 anfängt
+    %%%%%% CONTENT %%%%%%
+    \pagenumbering{arabic}
     \input{chapters/1-einleitung}
     % put some more chapters here
-    %.
-    %.
+    % \input{chapters/2-chapter2}
+    % etc.
     %.
     %.
     %.
 
-    \renewcommand{\thechapter}{A}
+    
+    %%%%%% APPENDIX %%%%%%
+    \appendix
     \chapter{Literature}
     \begin{flushleft}
         \bibliography{resources/sources}
@@ -154,6 +158,6 @@ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
     \section{Acronyms} %Hack
     \printglossary[type=\acronymtype]
 
-    \renewcommand{\thechapter}{B}
+    \chapter{Appendix}
 
 \end{document}
