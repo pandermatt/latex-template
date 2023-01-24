@@ -7,7 +7,7 @@ This is my LaTeX template that I have used over several years of study to write 
 ## How to use
 
 * `.github/workflows/main.yml`: runs a GitHub action to compile the LaTeX file
-* `run.sh`: run the LaTeX compilation locally
+* `build.sh`: run the LaTeX compilation locally
 * `chapters/1-einleitung.tex`: shows some important LaTeX commands
 ```latex
 This is an acronym \gls{WWW}
